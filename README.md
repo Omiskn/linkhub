@@ -1,4 +1,4 @@
-# LinkFlow Client
+# LinkHub Client
 
 > Modern, responsive, and customizable link-in-bio web application built with React 19, TypeScript, Vite, Tailwind CSS v4, Shadcn UI, and TanStack Query.
 
@@ -41,12 +41,12 @@
 
 ## Overview
 
-**LinkFlow Client** is the official web application frontend for the LinkFlow platform. It delivers a fast, responsive user interface designed for two distinct audiences:
+**LinkHub Client** is the official web application frontend for the LinkHub platform. It delivers a fast, responsive user interface designed for two distinct audiences:
 
 1. **Content Creators & Businesses:** An administrative dashboard for curating personal link trees, managing profile avatars, customizing design themes, and analyzing visitor interactions with interactive charts.
 2. **Public Profile Visitors:** Fast, lightweight landing pages (`/public_profile/:username`) that display active links with client-side telemetry (capturing device type, browser, and country upon click).
 
-Built on React 19, Vite 8, and Tailwind CSS v4, LinkFlow Client leverages TanStack Query for cache invalidation and Recharts for responsive data visualization.
+Built on React 19, Vite 8, and Tailwind CSS v4,  Client leverages TanStack Query for cache invalidation and Recharts for responsive data visualization.
 
 ---
 
@@ -140,7 +140,7 @@ flowchart TD
     end
 
     subgraph External["External APIs & Services"]
-        Backend["LinkFlow REST API (:3000)"]
+        Backend["LinkHub REST API (:3000)"]
         IPAPI["ipapi.co (Geolocation)"]
     end
 
@@ -174,7 +174,7 @@ flowchart TD
 ## Repository Structure
 
 ```
-LinkFlow/
+LinkHub/
 ├── public/                         # Static assets
 ├── src/
 │   ├── assets/                     # Bundled images and vectors
@@ -228,7 +228,7 @@ LinkFlow/
 ### Public Bio Profile & Telemetry
 - **Route:** `/public_profile/:username`
 - **Execution Flow:**
-  1. Visitors access the creator's URL (e.g. `https://linkflow.app/public_profile/alex`).
+  1. Visitors access the creator's URL (e.g. `https://LinkHub.app/public_profile/alex`).
   2. The page queries `GET /api/users/public-profile/:username`.
   3. In parallel, `useCountry` queries `https://ipapi.co/json/` while `getDeviceType` and `getBrowser` parse `navigator.userAgent`.
   4. When a visitor clicks any link button, `recordClick` dispatches `POST /api/clicks/:linkId` with payload `{ country, device_type, browser }`.
@@ -262,7 +262,7 @@ LinkFlow/
 
 ## Theming & CSS Variable Engine
 
-LinkFlow features a custom theming pipeline implemented in `src/providers/AppearanceProvider.tsx` and `src/index.css`:
+LinkHub features a custom theming pipeline implemented in `src/providers/AppearanceProvider.tsx` and `src/index.css`:
 
 ```mermaid
 flowchart LR
@@ -309,14 +309,14 @@ flowchart LR
 ### Prerequisites
 - **Node.js:** v20.x or higher
 - **npm:** v10.x or higher
-- **LinkFlow Backend Server:** Ensure [LinkFlow-server](https://github.com/Omiskn/LinkFlow-server) is running on `http://localhost:3000` (or configure your API proxy).
+- **LinkHub Backend Server:** Ensure [LinkHub-server](https://github.com/Omiskn/LinkHub-server) is running on `http://localhost:3000` (or configure your API proxy).
 
 ### Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Omiskn/LinkFlow.git
-   cd LinkFlow
+   git clone https://github.com/Omiskn/LinkHub.git
+   cd LinkHub
    ```
 
 2. **Install dependencies:**
@@ -326,7 +326,7 @@ flowchart LR
 
 ### Configuration
 
-The frontend API endpoint is defined in [`src/lib/axios.ts`](file:///C:/Users/OMISK/LinkFlow/src/lib/axios.ts). By default, it targets:
+The frontend API endpoint is defined in [`src/lib/axios.ts`](file:///C:/Users/OMISK/LinkHub/src/lib/axios.ts). By default, it targets:
 ```ts
 baseURL: "http://localhost:3000/api"
 ```
