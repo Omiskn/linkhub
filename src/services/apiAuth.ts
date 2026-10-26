@@ -12,6 +12,12 @@ export const authService = {
     return res;
   },
 
+  googleLogin: async (idToken: string) => {
+    const { data: res } = await api.post("/users/google", { idToken });
+    return res;
+  },
+
+
   verifyEmail: async (token: string) => {
     const { data: res } = await api.get("/users/verify-email", {
       params: { token },
