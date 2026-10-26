@@ -25,6 +25,17 @@ export const authService = {
     return res;
   },
 
+  forgotPassword: async (email: string) => {
+    const { data: res } = await api.post("/users/forgot-password", { email });
+    return res;
+  },
+
+  resetPassword: async (data: { token: string; newPassword: string }) => {
+    const { data: res } = await api.post("/users/reset-password", data);
+    return res;
+  },
+
+
   updateMe: async (data: UpdateUserDTO) => {
     const formData = new FormData();
 
