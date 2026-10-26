@@ -12,7 +12,11 @@ import Profile from "./pages/ProfilePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+
 import VerifyEmailPage from "./pages/VerifyEmailPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+
+
 import ProtectedRoute from "./components/ui/ProtectedRoute";
 import { ThemeProvider } from "./providers/theme-provider";
 // import { ThemeColorProvider } from "./providers/Color-theme-Provider";
@@ -54,7 +58,12 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot_password" element={<ForgotPassword />} />
+              <Route
+                path="/reset_password"
+                element={<ResetPasswordPage />}
+              />
               <Route path="/verify_email" element={<VerifyEmailPage />} />
+
               <Route
                 path="/public_profile/:username"
                 element={<PublicProfilePage />}
