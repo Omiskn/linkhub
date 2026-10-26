@@ -13,11 +13,12 @@ export const linkService = {
     return res;
   },
 
-  editLink: async (data: LinkDTO, editId: number) => {
+  editLink: async (data: Partial<LinkDTO>, editId: number) => {
     const { data: res } = await apiWithToken.patch(`/links/${editId}`, data);
 
     return res;
   },
+
 
   deleteLink: async (linkId: number) => {
     const { data: res } = await apiWithToken.delete(`links/${linkId}`);
