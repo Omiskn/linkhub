@@ -24,4 +24,10 @@ export const linkService = {
     const { data: res } = await apiWithToken.delete(`links/${linkId}`);
     return res;
   },
+
+  reorderLinks: async (linkIds: number[]) => {
+    const { data: res } = await apiWithToken.put("/links/reorder", { linkIds });
+    return res;
+  },
 };
+
